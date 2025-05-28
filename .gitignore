@@ -1,2 +1,3 @@
 # Project exclude paths
 /spring-2025-user-solution-main/target/
+/.idea/
