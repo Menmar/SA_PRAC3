@@ -1,5 +1,11 @@
 package edu.uoc.epcsd.user.application.rest;
 
+import static edu.uoc.epcsd.user.util.TestConstants.TEST_DESCRIPTION;
+import static edu.uoc.epcsd.user.util.TestConstants.TEST_ITEM_ID;
+import static edu.uoc.epcsd.user.util.TestConstants.TEST_LATITUDE;
+import static edu.uoc.epcsd.user.util.TestConstants.TEST_LINK;
+import static edu.uoc.epcsd.user.util.TestConstants.TEST_LONGITUDE;
+import static edu.uoc.epcsd.user.util.TestConstants.TEST_SESSION_ID;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;
@@ -20,12 +26,6 @@ import org.springframework.test.web.servlet.MockMvc;
 @WebMvcTest(DigitalItemRESTController.class)
 public class DigitalItemRESTControllerUnitTests {
 
-  private static final Long TEST_ITEM_ID = 1L;
-  private static final Long TEST_SESSION_ID = 1L;
-  private static final String TEST_DESCRIPTION = "Test description";
-  private static final Long TEST_LATITUDE = 1L;
-  private static final Long TEST_LONGITUDE = 1L;
-  private static final String TEST_LINK = "https://item.com/test";
 
   @Autowired
   private MockMvc mockMvc;

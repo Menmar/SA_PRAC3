@@ -1,5 +1,15 @@
 package edu.uoc.epcsd.user.domain;
 
+import static edu.uoc.epcsd.user.util.TestConstants.NON_EXISTING_USER_ID;
+import static edu.uoc.epcsd.user.util.TestConstants.SESSION_DESCRIPTION;
+import static edu.uoc.epcsd.user.util.TestConstants.SESSION_ID;
+import static edu.uoc.epcsd.user.util.TestConstants.SESSION_LINK;
+import static edu.uoc.epcsd.user.util.TestConstants.SESSION_LOCATION;
+import static edu.uoc.epcsd.user.util.TestConstants.USER_EMAIL;
+import static edu.uoc.epcsd.user.util.TestConstants.USER_FULL_NAME;
+import static edu.uoc.epcsd.user.util.TestConstants.USER_ID;
+import static edu.uoc.epcsd.user.util.TestConstants.USER_PASSWORD;
+import static edu.uoc.epcsd.user.util.TestConstants.USER_PHONE_NUMBER;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.mockito.Mockito.never;
@@ -23,19 +33,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 public class DigitalSessionServiceUnitTests {
 
-  private static final Long USER_ID = 1L;
-  private static final String USER_FULL_NAME = "Test User";
-  private static final String USER_EMAIL = "test@example.com";
-  private static final String USER_PASSWORD = "password";
-  private static final String USER_PHONE_NUMBER = "123456789";
-
-  private static final Long SESSION_ID = 2L;
-  private static final String SESSION_DESCRIPTION = "Test Digital Session";
-  private static final String SESSION_LOCATION = "Test Location";
-  private static final String SESSION_LINK = "https://example.com";
-
-
-  private static final Long NON_EXISTING_USER_ID = 99L;
 
   @Mock
   private DigitalSessionRepository digitalSessionRepository;

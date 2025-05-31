@@ -3,6 +3,15 @@ package edu.uoc.epcsd.user;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 import static com.tngtech.archunit.library.Architectures.onionArchitecture;
+import static edu.uoc.epcsd.user.util.TestConstants.APPLICATION_PACKAGE;
+import static edu.uoc.epcsd.user.util.TestConstants.BASE_PACKAGE;
+import static edu.uoc.epcsd.user.util.TestConstants.DOMAIN_EXCEPTION_PACKAGE;
+import static edu.uoc.epcsd.user.util.TestConstants.DOMAIN_MODEL_PACKAGE;
+import static edu.uoc.epcsd.user.util.TestConstants.DOMAIN_REPOSITORY_PACKAGE;
+import static edu.uoc.epcsd.user.util.TestConstants.DOMAIN_SERVICE_PACKAGE;
+import static edu.uoc.epcsd.user.util.TestConstants.INFRASTRUCTURE_JPA_PACKAGE;
+import static edu.uoc.epcsd.user.util.TestConstants.INFRASTRUCTURE_PACKAGE;
+import static edu.uoc.epcsd.user.util.TestConstants.INFRASTRUCTURE_REST_PACKAGE;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
@@ -14,16 +23,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.stereotype.Service;
 
 public class ArchitectureTests {
-
-  private static final String BASE_PACKAGE = "edu.uoc.epcsd.user";
-  private static final String DOMAIN_MODEL_PACKAGE = BASE_PACKAGE + ".domain";
-  private static final String DOMAIN_EXCEPTION_PACKAGE = DOMAIN_MODEL_PACKAGE + ".exception..";
-  private static final String DOMAIN_REPOSITORY_PACKAGE = DOMAIN_MODEL_PACKAGE + ".repository..";
-  private static final String DOMAIN_SERVICE_PACKAGE = DOMAIN_MODEL_PACKAGE + ".service..";
-  private static final String APPLICATION_PACKAGE = BASE_PACKAGE + ".application..";
-  private static final String INFRASTRUCTURE_PACKAGE = BASE_PACKAGE + ".infrastructure";
-  private static final String INFRASTRUCTURE_JPA_PACKAGE = INFRASTRUCTURE_PACKAGE + ".repository.jpa..";
-  private static final String INFRASTRUCTURE_REST_PACKAGE = INFRASTRUCTURE_PACKAGE + ".repository.rest..";
 
 
   private static JavaClasses importedClasses;
