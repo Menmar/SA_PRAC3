@@ -23,6 +23,20 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 public class DigitalSessionServiceUnitTests {
 
+  private static final Long USER_ID = 1L;
+  private static final String USER_FULL_NAME = "Test User";
+  private static final String USER_EMAIL = "test@example.com";
+  private static final String USER_PASSWORD = "password";
+  private static final String USER_PHONE_NUMBER = "123456789";
+
+  private static final Long SESSION_ID = 2L;
+  private static final String SESSION_DESCRIPTION = "Test Digital Session";
+  private static final String SESSION_LOCATION = "Test Location";
+  private static final String SESSION_LINK = "https://example.com";
+
+
+  private static final Long NON_EXISTING_USER_ID = 99L;
+
   @Mock
   private DigitalSessionRepository digitalSessionRepository;
 
@@ -34,10 +48,11 @@ public class DigitalSessionServiceUnitTests {
 
   @Test
   public void FindDigitalSessionByUserTest_ExistingUser() {
-    User mockUser = User.builder().id(1L).fullName("Test User").email("test@example.com").password("password")
-        .phoneNumber("123456789").build();
-    DigitalSession mockDigitalSession = DigitalSession.builder().id(2L).userId(mockUser.getId())
-        .description("Test Digital Session").location("Test Location").link("https://example.com").build();
+    User mockUser = User.builder().id(USER_ID).fullName(USER_FULL_NAME).email(USER_EMAIL).password(USER_PASSWORD)
+        .phoneNumber(USER_PHONE_NUMBER).build();
+
+    DigitalSession mockDigitalSession = DigitalSession.builder().id(SESSION_ID).userId(mockUser.getId())
+        .description(SESSION_DESCRIPTION).location(SESSION_LOCATION).link(SESSION_LINK).build();
 
     List<DigitalSession> expectedSessions = Collections.singletonList(mockDigitalSession);
 
@@ -53,12 +68,13 @@ public class DigitalSessionServiceUnitTests {
 
   @Test
   public void FindDigitalSessionByUserTest_NonExistingUser() {
-    when(userRepository.findUserById(1L)).thenReturn(Optional.empty());
+    when(userRepository.findUserById(NON_EXISTING_USER_ID)).thenReturn(Optional.empty());
 
-    ThrowableAssert.ThrowingCallable callable = () -> digitalSessionService.findDigitalSessionByUser(1L);
+    ThrowableAssert.ThrowingCallable callable = () -> digitalSessionService.findDigitalSessionByUser(
+        NON_EXISTING_USER_ID);
 
     assertThatThrownBy(callable).isInstanceOf(UserNotFoundException.class);
-    verify(userRepository).findUserById(1L);
-    verify(digitalSessionRepository, never()).findDigitalSessionByUser(1L);
+    verify(userRepository).findUserById(NON_EXISTING_USER_ID);
+    verify(digitalSessionRepository, never()).findDigitalSessionByUser(NON_EXISTING_USER_ID);
   }
 }

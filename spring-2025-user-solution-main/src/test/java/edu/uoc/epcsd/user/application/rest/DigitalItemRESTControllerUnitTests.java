@@ -20,6 +20,13 @@ import org.springframework.test.web.servlet.MockMvc;
 @WebMvcTest(DigitalItemRESTController.class)
 public class DigitalItemRESTControllerUnitTests {
 
+  private static final Long TEST_ITEM_ID = 1L;
+  private static final Long TEST_SESSION_ID = 1L;
+  private static final String TEST_DESCRIPTION = "Test description";
+  private static final Long TEST_LATITUDE = 1L;
+  private static final Long TEST_LONGITUDE = 1L;
+  private static final String TEST_LINK = "https://item.com/test";
+
   @Autowired
   private MockMvc mockMvc;
 
@@ -29,8 +36,8 @@ public class DigitalItemRESTControllerUnitTests {
   @Test
   public void findDigitalItemBySessionTest() throws Exception {
     Long sessionId = 2L;
-    DigitalItem item = DigitalItem.builder().id(1L).digitalSessionId(1L).description("Test description").lat(1L).lon(1L)
-        .link("http://item.com/test").build();
+    DigitalItem item = DigitalItem.builder().id(TEST_ITEM_ID).digitalSessionId(TEST_SESSION_ID)
+        .description(TEST_DESCRIPTION).lat(TEST_LATITUDE).lon(TEST_LONGITUDE).link(TEST_LINK).build();
 
     List<DigitalItem> expectedItems = Collections.singletonList(item);
 
