@@ -42,8 +42,7 @@ public class ArchitectureTests {
     concreteInfrastructureTest();
   }
 
-  @Test
-  @DisplayName("Onion Pattern")
+  //"Onion Pattern"
   void onionPatternTest() {
     ArchRule onionRule = onionArchitecture().withOptionalLayers(true)
         .domainModels(DOMAIN_MODEL_PACKAGE, DOMAIN_EXCEPTION_PACKAGE)
@@ -54,8 +53,7 @@ public class ArchitectureTests {
     onionRule.check(importedClasses);
   }
 
-  @Test
-  @DisplayName("Domain layer should not depend on application or infrastructure layers")
+  //"Domain layer should not depend on application or infrastructure layers"
   void outerLayers() {
     ArchRule outerRule = noClasses().that().resideInAPackage(BASE_PACKAGE + ".domain..").should().dependOnClassesThat()
         .resideInAnyPackage(APPLICATION_PACKAGE, INFRASTRUCTURE_PACKAGE)
@@ -63,8 +61,7 @@ public class ArchitectureTests {
     outerRule.check(importedClasses);
   }
 
-  @Test
-  @DisplayName("Application layer should not depend on concrete infrastructure")
+  //"Application layer should not depend on concrete infrastructure"
   void concreteInfrastructureTest() {
     ArchRule applicationRule = noClasses().that().resideInAPackage(APPLICATION_PACKAGE).should().dependOnClassesThat()
         .resideInAnyPackage(INFRASTRUCTURE_JPA_PACKAGE, INFRASTRUCTURE_REST_PACKAGE)

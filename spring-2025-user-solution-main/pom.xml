@@ -55,12 +55,6 @@
       <scope>test</scope>
       <version>1.3.0</version>
     </dependency>
-    <dependency>
-      <artifactId>junit</artifactId>
-      <groupId>junit</groupId>
-      <scope>test</scope>
-      <version>4.13.2</version>
-    </dependency>
   </dependencies>
   <description>User Spring Boot stub for EPCSD</description>
   <groupId>edu.uoc.epcsd</groupId>
