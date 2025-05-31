@@ -1,10 +1,9 @@
 package edu.uoc.epcsd.user.domain;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-@SpringBootTest
+import org.junit.jupiter.api.Test;
+
 public class DigitalItemUnitTest {
 
   @Test
@@ -12,7 +11,7 @@ public class DigitalItemUnitTest {
     DigitalItem digitalItem = DigitalItem.builder().id(1L).digitalSessionId(1L).description("Test description").lat(1L)
         .lon(1L).link("http://item.com/test").build();
 
-    Assertions.assertEquals(DigitalItemStatus.AVAILABLE, digitalItem.getStatus());
+    assertThat(digitalItem.getStatus()).isEqualTo(DigitalItemStatus.AVAILABLE);
 
   }
 }
