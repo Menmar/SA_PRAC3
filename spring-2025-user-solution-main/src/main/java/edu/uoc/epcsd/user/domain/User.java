@@ -1,9 +1,13 @@
 package edu.uoc.epcsd.user.domain;
 
-import lombok.*;
-import lombok.experimental.SuperBuilder;
-
 import javax.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @ToString
 @Getter
@@ -14,19 +18,19 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class User {
 
-    @NotNull
-    private Long id;
+  @NotNull
+  private Long id;
 
-    @NotNull
-    private String fullName;
+  @NotNull
+  private String fullName;
 
-    @NotNull
-    private String email;
+  @NotNull
+  private String email;
 
-    @NotNull
-    private String password;
+  @NotNull
+  private String password;
 
-    @NotNull
-    private String phoneNumber;
+  @NotNull
+  private String phoneNumber;
 
 }

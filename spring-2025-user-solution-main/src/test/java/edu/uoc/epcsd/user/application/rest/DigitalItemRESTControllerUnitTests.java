@@ -26,7 +26,6 @@ import org.springframework.test.web.servlet.MockMvc;
 @WebMvcTest(DigitalItemRESTController.class)
 public class DigitalItemRESTControllerUnitTests {
 
-
   @Autowired
   private MockMvc mockMvc;
 
@@ -35,15 +34,14 @@ public class DigitalItemRESTControllerUnitTests {
 
   @Test
   public void findDigitalItemBySessionTest() throws Exception {
-    Long sessionId = 2L;
     DigitalItem item = DigitalItem.builder().id(TEST_ITEM_ID).digitalSessionId(TEST_SESSION_ID)
         .description(TEST_DESCRIPTION).lat(TEST_LATITUDE).lon(TEST_LONGITUDE).link(TEST_LINK).build();
 
     List<DigitalItem> expectedItems = Collections.singletonList(item);
 
-    when(digitalItemService.findDigitalItemBySession(sessionId)).thenReturn(expectedItems);
+    when(digitalItemService.findDigitalItemBySession(TEST_SESSION_ID)).thenReturn(expectedItems);
 
-    mockMvc.perform(get("/digitalItem/digitalItemBySession").param("digitalSessionId", sessionId.toString()))
+    mockMvc.perform(get("/digitalItem/digitalItemBySession").param("digitalSessionId", TEST_SESSION_ID.toString()))
         .andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(1)))
         .andExpect(jsonPath("$[0].id", is(item.getId().intValue())))
         .andExpect(jsonPath("$[0].description", is(item.getDescription())))

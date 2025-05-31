@@ -9,8 +9,6 @@ public final class TestConstants {
   public static final Long TEST_LONGITUDE = 20L;
   public static final String TEST_LINK = "https://item.com/test";
 
-  public static final Long TEST_ITEM_ID2 = 1L;
-  public static final Long TEST_SESSION_ID2 = 1L;
   public static final String TEST_DESCRIPTION2 = "Test description 2";
   public static final Long TEST_LATITUDE2 = 11L;
   public static final Long TEST_LONGITUDE2 = 21L;

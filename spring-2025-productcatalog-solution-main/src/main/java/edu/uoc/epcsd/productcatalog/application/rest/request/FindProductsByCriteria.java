@@ -7,8 +7,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public final class FindProductsByCriteria {
 
-    private final String name;
+  private final String name;
 
-    private final Long categoryId;
+  private final Long categoryId;
 
 }

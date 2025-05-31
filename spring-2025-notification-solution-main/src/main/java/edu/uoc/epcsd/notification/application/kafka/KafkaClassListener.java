@@ -12,12 +12,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class KafkaClassListener {
 
-    private final NotificationService notificationService;
+  private final NotificationService notificationService;
 
-    @KafkaListener(topics = KafkaConstants.PRODUCT_TOPIC + KafkaConstants.SEPARATOR + KafkaConstants.UNIT_AVAILABLE, groupId = "group-1")
-    void productAvailable(ProductMessage productMessage) {
-        log.trace("productAvailable");
+  @KafkaListener(topics = KafkaConstants.PRODUCT_TOPIC + KafkaConstants.SEPARATOR
+      + KafkaConstants.UNIT_AVAILABLE, groupId = "group-1")
+  void productAvailable(ProductMessage productMessage) {
+    log.trace("productAvailable");
 
-        notificationService.notifyProductAvailable(productMessage);
-    }
+    notificationService.notifyProductAvailable(productMessage);
+  }
 }

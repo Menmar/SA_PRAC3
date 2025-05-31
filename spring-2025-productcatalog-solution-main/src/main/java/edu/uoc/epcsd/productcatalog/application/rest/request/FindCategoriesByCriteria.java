@@ -7,10 +7,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public final class FindCategoriesByCriteria {
 
-    private final String name;
+  private final String name;
 
-    private final String description;
+  private final String description;
 
-    private final Long parentId;
+  private final Long parentId;
 
 }

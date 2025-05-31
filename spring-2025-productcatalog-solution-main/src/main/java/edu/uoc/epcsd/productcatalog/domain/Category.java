@@ -1,6 +1,10 @@
 package edu.uoc.epcsd.productcatalog.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 
@@ -12,6 +16,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class Category extends CatalogElement {
 
-    private Long parentId;
+  private Long parentId;
 
 }

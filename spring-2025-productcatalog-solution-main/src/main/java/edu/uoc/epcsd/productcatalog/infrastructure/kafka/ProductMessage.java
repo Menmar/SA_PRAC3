@@ -1,6 +1,11 @@
 package edu.uoc.epcsd.productcatalog.infrastructure.kafka;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @ToString
 @Getter
@@ -10,6 +15,6 @@ import lombok.*;
 @AllArgsConstructor
 public final class ProductMessage {
 
-    private final Long productId;
+  private final Long productId;
 
 }

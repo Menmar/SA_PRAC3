@@ -2,10 +2,21 @@ package edu.uoc.epcsd.user.infrastructure.repository.jpa;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.uoc.epcsd.user.domain.User;
-import lombok.*;
-
-import javax.persistence.*;
 import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity(name = "User")
 @ToString
@@ -18,48 +29,48 @@ import java.util.List;
 @Table(name = "`user`")
 public class UserEntity implements DomainTranslatable<User> {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Column(name = "fullName", nullable = false)
-    private String fullName;
+  @Column(name = "fullName", nullable = false)
+  private String fullName;
 
-    @Column(name = "email", nullable = false)
-    private String email;
+  @Column(name = "email", nullable = false)
+  private String email;
 
-    @Column(name = "password", nullable = false)
-    private String password;
+  @Column(name = "password", nullable = false)
+  private String password;
 
-    @Column(name = "phoneNumber", nullable = false)
-    private String phoneNumber;
+  @Column(name = "phoneNumber", nullable = false)
+  private String phoneNumber;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "user", orphanRemoval = true)
-    private List<AlertEntity> alerts;
+  @JsonIgnore
+  @OneToMany(mappedBy = "user", orphanRemoval = true)
+  private List<AlertEntity> alerts;
 
-    public static UserEntity fromDomain(User user) {
-        if (user == null) {
-            return null;
-        }
-
-        return UserEntity.builder()
-                .id(user.getId())
-                .fullName(user.getFullName())
-                .email(user.getEmail())
-                .password(user.getPassword())
-                .phoneNumber(user.getPhoneNumber())
-                .build();
+  public static UserEntity fromDomain(User user) {
+    if (user == null) {
+      return null;
     }
 
-    @Override
-    public User toDomain() {
-        return User.builder()
-                .id(this.getId())
-                .fullName(this.getFullName())
-                .email(this.getEmail())
-                .password(this.getPassword())
-                .phoneNumber(this.getPhoneNumber())
-                .build();
-    }
+    return UserEntity.builder()
+        .id(user.getId())
+        .fullName(user.getFullName())
+        .email(user.getEmail())
+        .password(user.getPassword())
+        .phoneNumber(user.getPhoneNumber())
+        .build();
+  }
+
+  @Override
+  public User toDomain() {
+    return User.builder()
+        .id(this.getId())
+        .fullName(this.getFullName())
+        .email(this.getEmail())
+        .password(this.getPassword())
+        .phoneNumber(this.getPhoneNumber())
+        .build();
+  }
 }
