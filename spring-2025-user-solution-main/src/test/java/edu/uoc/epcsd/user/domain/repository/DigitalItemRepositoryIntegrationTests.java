@@ -22,7 +22,7 @@ import org.springframework.test.context.ActiveProfiles;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Import({DigitalItemRepositoryImpl.class, DigitalSessionRepositoryImpl.class, UserRepositoryImpl.class})
 @ActiveProfiles("test")
-public class DigitalItemRepositoryIntegrationTest {
+public class DigitalItemRepositoryIntegrationTests {
 
   @Autowired
   private DigitalItemRepository digitalItemRepository;

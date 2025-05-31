@@ -18,7 +18,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest(DigitalItemRESTController.class)
-public class DigitalItemRESTControllerUnitTest {
+public class DigitalItemRESTControllerUnitTests {
 
   @Autowired
   private MockMvc mockMvc;
