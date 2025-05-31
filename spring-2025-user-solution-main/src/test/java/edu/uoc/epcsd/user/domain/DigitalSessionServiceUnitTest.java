@@ -33,7 +33,7 @@ public class DigitalSessionServiceUnitTest {
   private DigitalSessionServiceImpl digitalSessionService;
 
   @Test
-  public void testFindDigitalSessionByUser_ExistingUser() {
+  public void FindDigitalSessionByUserTest_ExistingUser() {
     User mockUser = User.builder().id(1L).fullName("Test User").email("test@example.com").password("password")
         .phoneNumber("123456789").build();
     DigitalSession mockDigitalSession = DigitalSession.builder().id(2L).userId(mockUser.getId())
@@ -52,7 +52,7 @@ public class DigitalSessionServiceUnitTest {
   }
 
   @Test
-  public void testFindDigitalSessionByUser_NonExistingUser() {
+  public void FindDigitalSessionByUserTest_NonExistingUser() {
     when(userRepository.findUserById(1L)).thenReturn(Optional.empty());
 
     ThrowableAssert.ThrowingCallable callable = () -> digitalSessionService.findDigitalSessionByUser(1L);
